@@ -142,16 +142,11 @@ function greeting(name) {
  ******************************************************************************/
 
 function cleanUp(value) {
-  let returnString = value.replace(/ {2}/g, ` `);
-  returnString = returnString.replace(/"/g, `'`);
+  let returnString = value.replace(/ +/g, ` `); // Removes double space
 
-  while (returnString.includes(`( `)) {
-    returnString = returnString.replace('( ', `(`);
-  }
-
-  while (returnString.includes(` )`)) {
-    returnString = returnString.replace(' )', `)`);
-  }
+  returnString = returnString.replace(/"/g, `'`); // Replaces doubles quotes
+  returnString = returnString.replace(/\( +/g, `(`); // Corrects the spaces after `(`
+  returnString = returnString.replace(/ +\)/g, `)`); // Corrects the spaces after `)`
 
   return returnString;
 }
@@ -213,8 +208,7 @@ function createVideo(src, loop, muted) {
     attribute += ` muted`;
   }
 
-  let videoTag = `<video src="` + link + `"` + attribute + `></video>`;
-  return videoTag;
+  return `<video src="` + link + `"` + attribute + `></video>`;
 }
 
 /*******************************************************************************
@@ -265,55 +259,43 @@ function fixPostalCode(postalCode) {
   let firstHalf;
   let secondHalf;
 
-  // Checks the length of the string
-  if (correctedPostalcode.length > 7 || correctedPostalcode.length < 6) {
-    throw 'Invalif Format!';
-  }
-
   // Breaks the string into two parts and joins them for further calculation
-  if (correctedPostalcode[3] === ` ` || correctedPostalcode[3] === `-`) {
-    firstHalf = correctedPostalcode.slice(0, 3);
-    secondHalf = correctedPostalcode.slice(4, 7);
+  firstHalf = correctedPostalcode.slice(0, 3);
+  secondHalf = correctedPostalcode.slice(3);
+
+  // Checks the spacing between the parts
+  if (/\d/.test(secondHalf[0])) {
     correctedPostalcode = firstHalf + secondHalf;
   } else {
-    firstHalf = correctedPostalcode.slice(0, 3);
-    secondHalf = correctedPostalcode.slice(3, 6);
-    correctedPostalcode = firstHalf + secondHalf;
+    if (/[- ]?\d[A-Z]\d/.test(secondHalf)) {
+      secondHalf = secondHalf.replace(/[- ]/, '');
+      correctedPostalcode = firstHalf + secondHalf;
+    } else {
+      throw `Invalid Seperator after the third place`;
+    }
+  }
+
+  // Checks the length of the string
+  if (correctedPostalcode.length !== 6) {
+    throw 'Invalid Length!';
   }
 
   // Checks for the invalid first characters
-  for (let i = 0; i < invalidFirsts.length; i++) {
-    if (correctedPostalcode[0] === invalidFirsts[i]) {
-      throw `Invalid First Character`;
-    }
+  if (invalidFirsts.includes(correctedPostalcode[0])) {
+    throw `Invalid First Character`;
   }
 
-  // Checks all individual characters
-  for (let i = 1; i < 6; i++) {
-    if (i % 2 === 0) {
-      let index = +correctedPostalcode[i];
-
-      if (!Number.isNaN(index)) {
-        throw `Incorrect Format at index ` + i;
-      }
-
-      for (let j = 0; j < invalidChars.length; j++) {
-        if (correctedPostalcode[i] === invalidChars[j]) {
-          throw `Invalid Character at  ` + i;
-        }
-      }
-    } else {
-      let index = +correctedPostalcode[i];
-
-      if (Number.isNaN(index)) {
-        throw `Incorrect Format at index ` + i + correctedPostalcode;
-      }
+  // Checks for the invalid characters
+  if (/[A-Z]\d[A-Z]\d[A-Z]\d/.test(correctedPostalcode)) {
+    if (
+      invalidChars.includes(correctedPostalcode[2]) ||
+      invalidChars.includes(correctedPostalcode[4])
+    ) {
+      throw `Invalid Characters, These are the invalid characters - ` + invalidChars;
     }
+    return firstHalf + ` ` + secondHalf;
   }
-
-  // Properly formats the strings.
-  correctedPostalcode = firstHalf + ` ` + secondHalf;
-  return correctedPostalcode;
+  throw `Invalid Format`;
 }
 
 /*******************************************************************************
@@ -358,12 +340,67 @@ function fixPostalCode(postalCode) {
  ******************************************************************************/
 
 function toProvince(postalCode, useLongForm) {
+  let firstLetters = [
+    [`K`, `L`, `M`, `N`, `P`],
+    [`G`, `H`, `J`],
+    `B`,
+    `E`,
+    `R`,
+    `V`,
+    `C`,
+    `S`,
+    `T`,
+    `A`,
+    `X`,
+    `Y`
+  ];
+  let provinceShortForm = [`ON`, `QC`, `NS`, `NB`, `MB`, `BC`, `PE`, `SK`, `AB`, `NL`, `NT`, `YT`];
+  let provinceName = [
+    `Ontario`,
+    `Quebec`,
+    `Nova Scotia`,
+    `New Brunswick`,
+    `Manitoba`,
+    `British Columbia`,
+    `Prince Edward Island`,
+    `Saskatchewan`,
+    `Alberta`,
+    `Newfoundland and Labrador`,
+    `Northwest Territories and Nunavut`,
+    `Yukon`
+  ];
+  let returnProvince;
+  let fixedPostalCode;
+
   try {
-    let fixedPostalCode = fixPostalCode(postalCode);
-    provinceCode = fixedPostalCode[0];
+    fixedPostalCode = fixPostalCode(postalCode); // To format the passed postal code
   } catch (error) {
     return null;
   }
+
+  let index; // Helps to find the return value from the arrays
+  let firstLetter = fixedPostalCode[0];
+
+  if (firstLetters.includes(firstLetter)) {
+    // Finds the province using the first charater of the code
+    index = firstLetters.indexOf(firstLetter);
+  } else {
+    // If the first chracter is not found, search them in the first 2 element of the array firstletters
+    for (let i = 0; i < 2; i++) {
+      if (firstLetters[i].includes(firstLetter)) {
+        index = i;
+        break;
+      }
+    }
+  }
+
+  if (useLongForm) {
+    returnProvince = provinceName[index];
+  } else {
+    returnProvince = provinceShortForm[index];
+  }
+
+  return returnProvince;
 }
 /*******************************************************************************
  * Problem 5: parse a geographic coordinate
@@ -393,8 +430,8 @@ function toProvince(postalCode, useLongForm) {
 
 function normalizeCoord(value) {
   let index = value.search(` `);
-  let firstHalf;
-  let secondHalf;
+  let firstHalf; // Latitude
+  let secondHalf; // Longitude
 
   if (index !== -1) {
     firstHalf = value.slice(0, index);
@@ -456,8 +493,7 @@ function formatCoords(...values) {
     }
   }
 
-  let returnStringWithBrackets = `(` + returnString.trim() + `)`;
-  return returnStringWithBrackets;
+  return `(` + returnString.trim() + `)`;
 }
 
 /*******************************************************************************
@@ -489,7 +525,47 @@ function formatCoords(...values) {
  ******************************************************************************/
 
 function countForProvince(provinceCode, ...postalCodes) {
-  // Replace this comment with your code...
+  let provinceShortForm = [`ON`, `QC`, `NS`, `NB`, `MB`, `BC`, `PE`, `SK`, `AB`, `NL`, `NT`, `YT`];
+  let provinceName = [
+    `Ontario`,
+    `Quebec`,
+    `Nova Scotia`,
+    `New Brunswick`,
+    `Manitoba`,
+    `British Columbia`,
+    `Prince Edward Island`,
+    `Saskatchewan`,
+    `Alberta`,
+    `Newfoundland and Labrador`,
+    `Northwest Territories and Nunavut`,
+    `Yukon`
+  ];
+  let provinceShort;
+  let returnCount = 0;
+
+  if (postalCodes.length === 0) {
+    throw `Uh-Oh, postalcodes cannot be found`;
+  }
+
+  // To the shortform of the province in discussion
+  if (provinceShortForm.indexOf(provinceCode) !== -1) {
+    provinceShort = provinceCode;
+  } else {
+    provinceShort = provinceShortForm[provinceName.indexOf(provinceCode)];
+  }
+
+  // To check the passed codes and keep track of the counter to return
+  for (let code of postalCodes) {
+    if (typeof code !== 'string') {
+      throw `Codes are not valid`;
+    }
+
+    if (provinceShort === toProvince(code)) {
+      returnCount++;
+    }
+  }
+
+  return returnCount;
 }
 
 /*******************************************************************************
@@ -542,8 +618,7 @@ function countForProvince(provinceCode, ...postalCodes) {
  ******************************************************************************/
 
 function generateLicenseLink(licenseCode, includeLicenseAttr) {
-  let compare = null;
-  if (licenseCode === compare) {
+  if (!licenseCode) {
     return `<a href="https://choosealicense.com/no-permission/">All Rights Reserved</a>`;
   }
   if (licenseCode[0] !== `C`) {
@@ -553,43 +628,37 @@ function generateLicenseLink(licenseCode, includeLicenseAttr) {
     return '<a href="https://choosealicense.com/no-permission/">All Rights Reserved</a>';
   }
 
-  let code = licenseCode.toLowerCase();
+  let code = licenseCode;
   code = code.slice(3, licenseCode.length);
   let licenseText;
   let rel = ``;
-
-  if (code[3] === `n`) {
-    if (code[6] === `n`) {
-      licenseText = `Creative Commons Attribution-NonCommercial-NoDerivs License`;
-    } else if (code[6] === `s`) {
-      licenseText = `Creative Commons Attribution-NonCommercial-ShareAlike License`;
-    } else {
-      if (code[4] === `c`) {
-        licenseText = `Creative Commons Attribution-NonCommercial License`;
-      } else {
-        licenseText = `Creative Commons Attribution-NoDerivs License`;
-      }
-    }
-  } else {
-    if (code[3] === `s`) {
-      licenseText = `Creative Commons Attribution-ShareAlike License`;
-    } else {
-      licenseText = `Creative Commons Attribution License`;
-    }
-  }
 
   if (includeLicenseAttr) {
     rel = ` rel="license"`;
   }
 
-  let returnLink =
-    `<a href="https://creativecommons.org/licenses/` +
-    code +
-    `/4.0/"` +
-    rel +
-    `>` +
-    licenseText +
-    `</a>`;
+  switch (licenseCode) {
+    case `CC-BY`:
+      licenseText = `Creative Commons Attribution License`;
+      break;
+    case `CC-BY-NC`:
+      licenseText = `Creative Commons Attribution-NonCommercial License`;
+      break;
+    case `CC-BY-SA`:
+      licenseText = `Creative Commons Attribution-ShareAlike License`;
+      break;
+    case `CC-BY-ND`:
+      licenseText = `Creative Commons Attribution-NoDerivs License`;
+      break;
+    case `CC-BY-NC-SA`:
+      licenseText = `Creative Commons Attribution-NonCommercial-ShareAlike License`;
+      break;
+    case `CC-BY-NC-ND`:
+      licenseText = `Creative Commons Attribution-NonCommercial-NoDerivs License`;
+      break;
+  }
+
+  let returnLink = `<a href="https://creativecommons.org/licenses/${code.toLowerCase()}/4.0/"${rel}>${licenseText}</a>`;
   return returnLink;
 }
 
@@ -619,7 +688,39 @@ function generateLicenseLink(licenseCode, includeLicenseAttr) {
  ******************************************************************************/
 
 function toBool(value) {
-  // Replace this comment with your code...
+  let trueString = `Yes, yes, YES, Y, Oui, oui, OUI, O, t, TRUE, true, True, vrai, V, VRAI`;
+  trueString = trueString.toLowerCase();
+  let falseString = `No, no, NO, Non, non, NON, N, n, f, FALSE, false, False, FAUX, faux, Faux`;
+  falseString = falseString.toLowerCase();
+
+  // Checks for a boolean type value
+  if (typeof value === `boolean`) {
+    return value;
+  }
+
+  // Checks for the integer type value
+  if (typeof value === `number`) {
+    if (value > 0) {
+      return true;
+    }
+    return false;
+  }
+
+  // To check for an undefined value
+  if (!value) {
+    throw 'invalid value';
+  }
+
+  value = value.toLowerCase();
+
+  if (trueString.includes(value)) {
+    return true;
+  }
+  if (falseString.includes(value)) {
+    return false;
+  }
+
+  throw value + 'invalid value';
 }
 
 /*******************************************************************************
@@ -638,15 +739,42 @@ function toBool(value) {
  ******************************************************************************/
 
 function all() {
-  // Replace this comment with your code...
+  for (let value of arguments) {
+    try {
+      if (!toBool(value)) {
+        return false;
+      }
+    } catch (error) {
+      throw `${value} cannot be identified`;
+    }
+  }
+  return true;
 }
 
 function some() {
-  // Replace this comment with your code...
+  for (let value of arguments) {
+    try {
+      if (toBool(value)) {
+        return true;
+      }
+    } catch (error) {
+      throw `${value} cannot be identified`;
+    }
+  }
+  return false;
 }
 
 function none() {
-  // Replace this comment with your code...
+  for (let value of arguments) {
+    try {
+      if (toBool(value)) {
+        return false;
+      }
+    } catch (error) {
+      throw `${value} cannot be identified`;
+    }
+  }
+  return true;
 }
 
 /*******************************************************************************
@@ -702,7 +830,41 @@ function none() {
  ******************************************************************************/
 
 function buildQuery(query, perPage, page, format) {
-  // Replace this comment with your code...
+  let template = `https://api.web222-example.org/v3/query`;
+  let formatOptions = `html, json, xml`;
+
+  let printQuery = ``;
+  if (query) {
+    query = query.replace(/ /g, `%20`);
+    printQuery = `query=${query}`;
+    template += `?${printQuery}`;
+  }
+
+  let printPerPage = ``;
+  if (perPage >= 1 && perPage <= 100) {
+    printPerPage = `per_page=${perPage}`;
+    template += `&${printPerPage}`;
+  } else {
+    throw `Incorrect number of Pages`;
+  }
+
+  let printpage = ``;
+  if (page >= 1 && page <= 100) {
+    printpage = `page=${page}`;
+    template += `&${printpage}`;
+  } else {
+    throw `Incorrect number of Pages`;
+  }
+
+  let printFormat = ``;
+  if (formatOptions.includes(format) && format) {
+    printFormat = `format=${format}`;
+    template += `&${printFormat}`;
+  } else {
+    throw `Invalid Format.`;
+  }
+
+  return template;
 }
 
 // Our unit test files need to access the functions we defined
