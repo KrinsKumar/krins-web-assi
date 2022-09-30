@@ -70,8 +70,7 @@
  * See if you can get this test to pass by fixing the bug in the code below.
  ******************************************************************************/
 function getTotalResults(data) {
-  // TODO: fix this code so it gets and returns the `total_results` property from observation data
-  return data;
+  return data.total_results;
 }
 
 /*******************************************************************************
