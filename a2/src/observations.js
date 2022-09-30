@@ -93,7 +93,18 @@ function getTotalResults(data) {
  * Your function shouldn't return anything, just call console.log()
  ******************************************************************************/
 function observationSummary(data) {
-  // TODO - use a for loop
+  
+  for (let i = 0 ; i < 20; i++) {
+    
+    let consoleString;
+    let result = data.results[i];
+
+    consoleString = result.user_id;
+    consoleString.concat(result.species_guess);
+    consoleString.concat(result.observed_on_details.date)
+
+    console.log(consoleString);
+  }
 }
 
 /*******************************************************************************
