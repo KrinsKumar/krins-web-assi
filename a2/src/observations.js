@@ -8,7 +8,7 @@
  *
  * Please update the following with your information:
  *
- *      Name: <YOUR_NAME>
+ *      Name: Krinskumar Bhaveshkumar Vaghasia
  *      Student ID: <YOUR_STUDENT_ID>
  *      Date: <SUBMISSION_DATE>
  *
