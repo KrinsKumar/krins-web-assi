@@ -93,15 +93,15 @@ function getTotalResults(data) {
  * Your function shouldn't return anything, just call console.log()
  ******************************************************************************/
 function observationSummary(data) {
-  
-  for (let i = 0 ; i < 20; i++) {
-    
-    let consoleString;
+  for (let i = 0; i < 20; i++) {
+    let consoleString = ``;
     let result = data.results[i];
 
-    consoleString = result.user_id;
-    consoleString.concat(result.species_guess);
-    consoleString.concat(result.observed_on_details.date)
+    consoleString = consoleString.concat(result.id);
+    consoleString = consoleString.concat(`@`);
+    consoleString = consoleString.concat(result.observed_on_details.date);
+    consoleString = consoleString.concat(`: `);
+    consoleString = consoleString.concat(result.species_guess);
 
     console.log(consoleString);
   }
@@ -116,7 +116,19 @@ function observationSummary(data) {
  * See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
  ******************************************************************************/
 function observationSummary2(data) {
-  // TODO - use forEach()
+  for (let i = 0; i < 20; i++) {
+    let consoleString = ``;
+    let result = data.results[i];
+
+    consoleString = consoleString.concat(result.id);
+    consoleString = consoleString.concat(`@`);
+    consoleString = consoleString.concat(result.observed_on_details.date);
+    consoleString = consoleString.concat(`: `);
+    consoleString = consoleString.concat(result.species_guess);
+
+    console.log(consoleString);
+  }
+}s
 }
 
 /*******************************************************************************
