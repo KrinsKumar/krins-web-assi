@@ -103,7 +103,7 @@ function observationSummary(data) {
     consoleString = consoleString.concat(`: `);
     consoleString = consoleString.concat(result.species_guess);
 
-    console.log(consoleString);
+    console.log(consoleString); // Logs the formatted string
   }
 }
 
@@ -116,9 +116,8 @@ function observationSummary(data) {
  * See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
  ******************************************************************************/
 function observationSummary2(data) {
-  for (let i = 0; i < 20; i++) {
+  data.results.forEach(function (result) {
     let consoleString = ``;
-    let result = data.results[i];
 
     consoleString = consoleString.concat(result.id);
     consoleString = consoleString.concat(`@`);
@@ -126,9 +125,8 @@ function observationSummary2(data) {
     consoleString = consoleString.concat(`: `);
     consoleString = consoleString.concat(result.species_guess);
 
-    console.log(consoleString);
-  }
-}s
+    console.log(consoleString); // Logs the formatted string
+  });
 }
 
 /*******************************************************************************
@@ -172,7 +170,19 @@ function observationSummary2(data) {
  * Your function should return the newly created Array.
  ******************************************************************************/
 function observationsByPrivacy(data, geoPrivacy) {
-  // TODO - use a for...of loop
+  let privacyArray = [];
+
+  if (geoPrivacy) {
+    geoPrivacy = geoPrivacy.toLowerCase();
+  } else if (!geoPrivacy === null) {
+    throw new error('This privacy value is not available!');
+  }
+
+  for (let result of data.results) {
+    if (result.geoprivacy === geoPrivacy) {
+      privacyArray.push(result);
+    }
+  }
 }
 
 /*******************************************************************************
