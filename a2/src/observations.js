@@ -319,7 +319,32 @@ function transformObservations2(data) {
  *  - use the .find() method to locate items by id, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
  ******************************************************************************/
 function getObservationsById(data, ...ids) {
-  data.results.forEach(function (result) {});
+  let returnArray = [];
+
+  // when one id is passed
+  if (ids.length === 1) {
+    // finds the id
+    let found = data.results.find(function (result) {
+      return result.id === ids[0];
+    });
+    // Checks the return value
+    if (found === undefined) {
+      return null;
+    }
+    return found;
+  }
+
+  ids.forEach(function (id) {
+    let found = data.results.find(function (result) {
+      return result.id === id;
+    });
+
+    if (!found === undefined) {
+      returnArray.push(found);
+    }
+  });
+
+  return returnArray;
 }
 
 /*******************************************************************************
