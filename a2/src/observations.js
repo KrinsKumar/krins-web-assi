@@ -171,11 +171,12 @@ function observationSummary2(data) {
  ******************************************************************************/
 function observationsByPrivacy(data, geoPrivacy) {
   let privacyArray = [];
-
   if (geoPrivacy) {
     geoPrivacy = geoPrivacy.toLowerCase();
-  } else if (!geoPrivacy === null) {
-    throw new error('This privacy value is not available!');
+  }
+
+  if (geoPrivacy !== 'open' && geoPrivacy !== 'hidden' && geoPrivacy !== null) {
+    throw new Error('This privacy value is not available!');
   }
 
   for (let result of data.results) {
@@ -183,6 +184,8 @@ function observationsByPrivacy(data, geoPrivacy) {
       privacyArray.push(result);
     }
   }
+
+  return privacyArray;
 }
 
 /*******************************************************************************
