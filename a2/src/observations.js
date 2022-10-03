@@ -171,7 +171,9 @@ function observationSummary2(data) {
  ******************************************************************************/
 function observationsByPrivacy(data, geoPrivacy) {
   let privacyArray = [];
+
   if (geoPrivacy) {
+    // Converts to LowerCase
     geoPrivacy = geoPrivacy.toLowerCase();
   }
 
@@ -181,7 +183,8 @@ function observationsByPrivacy(data, geoPrivacy) {
 
   for (let result of data.results) {
     if (result.geoprivacy === geoPrivacy) {
-      privacyArray.push(result);
+      // Checks the values
+      privacyArray.push(result); // Adds the matching values
     }
   }
 
@@ -209,7 +212,37 @@ function observationsByPrivacy(data, geoPrivacy) {
  *   user: '@dridgen'                        // the user's login_exact name with '@' prefix added
  * }
  ******************************************************************************/
-function transformObservation(original) {}
+function transformObservation(original) {
+  let returnObject = new Object();
+  let photoUrl = [];
+  let location = [];
+
+  returnObject.id = original.id; // for id
+  returnObject.speciesGuess = original.species_guess; // for speciesGuess
+
+  if (original.quality_grade === 'research') {
+    returnObject.isResearchQuality = true;
+  } else {
+    returnObject.isResearchQuality = false;
+  }
+
+  let locationString = original.location;
+  let index = locationString.search(`,`);
+  let lati = +locationString.slice(0, index);
+  let long = +locationString.slice(index + 1);
+  location.push(long, lati);
+  returnObject.geoCoords = location; // for geoCords
+
+  for (let photo of original.photos) {
+    photoUrl.push(photo.url);
+  }
+  returnObject.photoUrls = photoUrl; // for the array of the photo
+
+  returnObject.photosCount = photoUrl.length; // for numbers of urls
+  returnObject.user = `@` + original.user.login_exact; // for login info
+
+  return returnObject;
+}
 
 /*******************************************************************************
  * Problem 3 Part II: transformObservations(data) with iteration
@@ -227,7 +260,12 @@ function transformObservation(original) {}
  *  - return the new Array containing all the transformed Objects
  ******************************************************************************/
 function transformObservations(data) {
-  // TODO - use for-loop or forEach()
+  let transformedData = [];
+
+  for (let result of data.results) {
+    transformedData.push(transformObservation(result));
+  }
+  return transformedData;
 }
 
 /*******************************************************************************
@@ -244,7 +282,10 @@ function transformObservations(data) {
  *  - return the Array created by the .map() method
  ******************************************************************************/
 function transformObservations2(data) {
-  // TODO - use map()
+  let transformedData = data.results.map(function (result) {
+    return transformObservation(result);
+  });
+  return transformedData;
 }
 
 /*******************************************************************************
@@ -278,7 +319,7 @@ function transformObservations2(data) {
  *  - use the .find() method to locate items by id, see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
  ******************************************************************************/
 function getObservationsById(data, ...ids) {
-  // TODO
+  data.results.forEach(function (result) {});
 }
 
 /*******************************************************************************
