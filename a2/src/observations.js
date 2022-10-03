@@ -209,9 +209,7 @@ function observationsByPrivacy(data, geoPrivacy) {
  *   user: '@dridgen'                        // the user's login_exact name with '@' prefix added
  * }
  ******************************************************************************/
-function transformObservation(original) {
-  // TODO
-}
+function transformObservation(original) {}
 
 /*******************************************************************************
  * Problem 3 Part II: transformObservations(data) with iteration
