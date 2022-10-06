@@ -380,23 +380,26 @@ function getObservationsById(data, ...ids) {
  ******************************************************************************/
 
 function getObservationsByPositionalAccuracy(data, options = {}) {
-  //positional_accuracy
   let returnArray = data.results.filter(function (result) {
     if (options.equal) {
+      // when equal is not undefined
       return result.positional_accuracy === options.equal;
     }
 
     if (options.greaterThan) {
       if (options.lessThan) {
+        // when < and > are both defined
         return (
           result.positional_accuracy < options.lessThan &&
           result.positional_accuracy > options.greaterThan
         );
       }
+      // when only greaterThan is defined
       return result.positional_accuracy > options.greaterThan;
     }
 
     if (options.lessThan) {
+      // when is only lessThan is defined
       return result.positional_accuracy < options.lessThan;
     }
     return true;
@@ -448,7 +451,26 @@ function getObservationsByPositionalAccuracy(data, options = {}) {
  * Your function should return the new Array of photo size URLs
  ******************************************************************************/
 function getTaxonPhotos(data) {
-  // TODO
+  let urlArray = [];
+
+  for (let result of data.results) {
+    if (result.taxon) {
+      let url = result.taxon.default_photo.url; // Gets the url in the object
+      url = url.slice(0, url.lastIndexOf('/') + 1); // Gets the default url
+      urlArray.push(returnUrlObject(url)); // pushes the formatted url object
+    }
+  }
+  return urlArray;
+}
+
+function returnUrlObject(url) {
+  url = {};
+  url.original = url + `original.jpg`;
+  url.square = url + `square.jpg`;
+  url.small = url + `small.jpg`;
+  url.medium = url + `medium.jpg`;
+  url.large = url + `large.jpg`;
+  return url;
 }
 
 /*******************************************************************************
@@ -554,13 +576,13 @@ function extractUserLogins(data) {
   let flag;
 
   for (let result of data.results) {
+    // adding elements in the array
     flag = 0;
     for (let userId of returnArray) {
       if (userId === result.user.login) {
         flag = 1;
       }
     }
-
     if (flag === 0) {
       returnArray.push(result.user.login);
     }
@@ -584,23 +606,13 @@ function extractUserLogins(data) {
 
 function extractUserLogins2(data) {
   let mySet = new Set();
-  let flag;
 
+  // adding elements in the set
   for (let result of data.results) {
-    flag = 0;
-    for (let userId of mySet) {
-      if (userId === result.user.login) {
-        flag = 1;
-      }
-    }
-
-    if (flag === 0) {
-      mySet.add(result.user.login);
-    }
+    mySet.add(result.user.login);
   }
-
   let returnArray = [];
-  returnArray.from(mySet);
+  returnArray = Array.from(mySet); // set to array transformation
   return returnArray;
 }
 
