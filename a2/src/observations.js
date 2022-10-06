@@ -339,7 +339,7 @@ function getObservationsById(data, ...ids) {
       return result.id === id;
     });
 
-    if (!found === undefined) {
+    if (!(found === undefined)) {
       returnArray.push(found);
     }
   });
@@ -380,7 +380,29 @@ function getObservationsById(data, ...ids) {
  ******************************************************************************/
 
 function getObservationsByPositionalAccuracy(data, options = {}) {
-  // TODO
+  //positional_accuracy
+  let returnArray = data.results.filter(function (result) {
+    if (options.equal) {
+      return result.positional_accuracy === options.equal;
+    }
+
+    if (options.greaterThan) {
+      if (options.lessThan) {
+        return (
+          result.positional_accuracy < options.lessThan &&
+          result.positional_accuracy > options.greaterThan
+        );
+      }
+      return result.positional_accuracy > options.greaterThan;
+    }
+
+    if (options.lessThan) {
+      return result.positional_accuracy < options.lessThan;
+    }
+    return true;
+  });
+
+  return returnArray;
 }
 
 /*******************************************************************************
@@ -527,7 +549,24 @@ function getUserStats(data) {
  * When you have processed all results, and collected all unique login values,
  * return the Array.
  */
-function extractUserLogins(data) {}
+function extractUserLogins(data) {
+  let returnArray = [];
+  let flag;
+
+  for (let result of data.results) {
+    flag = 0;
+    for (let userId of returnArray) {
+      if (userId === result.user.login) {
+        flag = 1;
+      }
+    }
+
+    if (flag === 0) {
+      returnArray.push(result.user.login);
+    }
+  }
+  return returnArray;
+}
 
 /**
  * Problem 08: Part 2 - extractTimeZones2()
@@ -544,7 +583,25 @@ function extractUserLogins(data) {}
  */
 
 function extractUserLogins2(data) {
-  // TODO
+  let mySet = new Set();
+  let flag;
+
+  for (let result of data.results) {
+    flag = 0;
+    for (let userId of mySet) {
+      if (userId === result.user.login) {
+        flag = 1;
+      }
+    }
+
+    if (flag === 0) {
+      mySet.add(result.user.login);
+    }
+  }
+
+  let returnArray = [];
+  returnArray.from(mySet);
+  return returnArray;
 }
 
 // Our unit test files need to access the functions we defined
