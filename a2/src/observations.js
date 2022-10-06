@@ -487,7 +487,30 @@ function getTaxonPhotos(data) {
  * }
  ******************************************************************************/
 function getUserStats(data) {
-  // TODO
+  let returnObject = {};
+  let count = 0;
+  let totalObservation = 0;
+  let totalJournels = 0;
+  let totalSpecies = 0;
+
+  for (let result of data.results) {
+    // loop to record values in the variables
+    count++;
+    totalObservation += result.user.observations_count;
+    totalJournels += result.user.journal_posts_count;
+    totalSpecies += result.user.species_count;
+  }
+
+  returnObject.count = count; // making the object to return
+  returnObject.totals = {};
+  returnObject.averages = {};
+  returnObject.totals.observations = totalObservation;
+  returnObject.averages.observations = totalObservation / count;
+  returnObject.totals.journals = totalJournels;
+  returnObject.averages.journals = totalJournels / count;
+  returnObject.totals.species = totalSpecies;
+  returnObject.averages.species = totalSpecies / count;
+  return returnObject;
 }
 
 /**
@@ -504,9 +527,7 @@ function getUserStats(data) {
  * When you have processed all results, and collected all unique login values,
  * return the Array.
  */
-function extractUserLogins(data) {
-  // TODO
-}
+function extractUserLogins(data) {}
 
 /**
  * Problem 08: Part 2 - extractTimeZones2()
