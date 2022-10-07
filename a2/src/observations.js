@@ -457,20 +457,18 @@ function getTaxonPhotos(data) {
     if (result.taxon) {
       let url = result.taxon.default_photo.url; // Gets the url in the object
       url = url.slice(0, url.lastIndexOf('/') + 1); // Gets the default url
-      urlArray.push(returnUrlObject(url)); // pushes the formatted url object
+
+      let urlObj = {};
+      urlObj.original = url + `original.jpg`;
+      urlObj.square = url + `square.jpg`;
+      urlObj.small = url + `small.jpg`;
+      urlObj.medium = url + `medium.jpg`;
+      urlObj.large = url + `large.jpg`;
+
+      urlArray.push(urlObj); // pushes the formatted url object
     }
   }
   return urlArray;
-}
-
-function returnUrlObject(url) {
-  url = {};
-  url.original = url + `original.jpg`;
-  url.square = url + `square.jpg`;
-  url.small = url + `small.jpg`;
-  url.medium = url + `medium.jpg`;
-  url.large = url + `large.jpg`;
-  return url;
 }
 
 /*******************************************************************************
