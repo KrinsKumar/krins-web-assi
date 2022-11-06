@@ -23,4 +23,156 @@ window.products = [
       categories: ["c1"]
     },
   */
+  {
+    id: `001`,
+    name: `Series Apex 3`,
+    description: `The Apex 3 is your first step into next level gaming. Build to outshine, outperform, and outlast the competition.`,
+    price: 4900,
+    discontinued: false,
+    categories: ["all-keyboards", "full-keyboards"]
+  },
+
+  {
+    id: `002`,
+    name: `Redragon K552`,
+    description: `Redragon k552 mechanical red switches Linear switches quiet click sound fast action with minimal resistance`,
+    price: 4599,
+    discontinued: false,
+    categories: ["all-keyboards", "mechanical-keyboards"]
+  },
+
+  {
+    id: `003`,
+    name: `Corsair K70`,
+    description: `Aircraft grade anodized brushed aluminum frame, built to withstand a lifetime of gaming`,
+    price: 22600,
+    discontinued: false,
+    categories: ["all-keyboards", "mechanical-keyboards", "compact-keyboards"]
+  },
+
+  {
+    id: `004`,
+    name: `KLUDGE RK84`,
+    description: `Believe it or not, this is the first generation of RGB three-mode wireless keyboards on the market.`,
+    price: 10999,
+    discontinued: true,
+    categories: ["all-keyboards", "optical-keyboards", "compact-keyboards"]
+  },
+
+  {
+    id: `005`,
+    name: `Tezarre TK61Pro`,
+    description: `16.8 million color combinations of RGB modes including Wave, Twinkle, Aurora, Musical Rhythm, Radar and Ripple`,
+    price: 5085,
+    discontinued: false,
+    categories: ["all-keyboards", "mechanical-keyboards", "compact-keyboards"]
+  },
+
+  {
+    id: `006`,
+    name: `YUNZII SK61`,
+    description: `Hot-swap keyboard with optical switch allows you to change switches without soldering`,
+    price: 8800,
+    discontinued: false,
+    categories: ["all-keyboards", "compact-keyboards"]
+  },
+
+  {
+    id: `007`,
+    name: `Corsair K100`,
+    description: `The K100 RGB is the pinnacle of CORSAIR keyboards, offering the cutting-edge performance, style and durability.`,
+    price: 26999,
+    discontinued: false,
+    categories: ["all-keyboards", "full-keyboards", "optical-keyboards"]
+  },
+
+  {
+    id: `008`,
+    name: ``,
+    description: ``,
+    price: 1,
+    discontinued: false,
+    categories: [
+      "all-keyboards",
+      "full-keyboards",
+      "mechanical-keyboards",
+      "optical-keyboards",
+      "compact-keyboards"
+    ]
+  },
+
+  {
+    id: `009`,
+    name: ``,
+    description: ``,
+    price: 1,
+    discontinued: false,
+    categories: [
+      "all-keyboards",
+      "full-keyboards",
+      "mechanical-keyboards",
+      "optical-keyboards",
+      "compact-keyboards"
+    ]
+  },
+
+  {
+    id: `010`,
+    name: ``,
+    description: ``,
+    price: 1,
+    discontinued: false,
+    categories: [
+      "all-keyboards",
+      "full-keyboards",
+      "mechanical-keyboards",
+      "optical-keyboards",
+      "compact-keyboards"
+    ]
+  },
+
+  {
+    id: `002`,
+    name: ``,
+    description: ``,
+    price: 1,
+    discontinued: false,
+    categories: [
+      "all-keyboards",
+      "full-keyboards",
+      "mechanical-keyboards",
+      "optical-keyboards",
+      "compact-keyboards"
+    ]
+  },
+
+  {
+    id: `002`,
+    name: ``,
+    description: ``,
+    price: 1,
+    discontinued: false,
+    categories: [
+      "all-keyboards",
+      "full-keyboards",
+      "mechanical-keyboards",
+      "optical-keyboards",
+      "compact-keyboards"
+    ]
+  },
+
+  {
+    id: `002`,
+    name: ``,
+    description: ``,
+    price: 1,
+    discontinued: false,
+    categories: [
+      "all-keyboards",
+      "full-keyboards",
+      "mechanical-keyboards",
+      "optical-keyboards",
+      "compact-keyboards"
+    ]
+  }
 ];

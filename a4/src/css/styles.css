@@ -1,3 +1,98 @@
 /**
  * Override any styles here that you want to change (optional)...
  */
+
+body {
+  background-color: #111111;
+}
+
+header {
+  background-color: #000000;
+  max-width: 100%;
+  color: #888888;
+  padding-top: 0;
+  padding-bottom: 2px;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+button {
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid rgba(0, 0, 0, 0);
+  color: #999;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  box-sizing: border-box;
+  width: 140px;
+  height: 140px;
+}
+
+button p {
+  margin-top: 0;
+}
+
+nav {
+  justify-content: center;
+  margin-bottom: 0;
+  background-color: #1a1a1a;
+}
+
+main {
+  padding-top: 0;
+}
+
+button:hover {
+  color: #44d62c;
+}
+
+#category {
+  color: #44d62c;
+}
+
+table {
+  white-space: normal;
+  border: 1px solid #999;
+}
+
+tr {
+  background-color: #111111;
+  color: #999;
+}
+
+table td,
+table th,
+table tr {
+  padding: 0.4rem 0.8rem;
+  text-align: left;
+}
+
+.table-01 {
+  border-right: 1px solid #999;
+}
+
+.table-02 {
+  border-right: 1px solid #999;
+}
+
+.header-01 {
+  border-right: 1px solid #999;
+  border-bottom: 1px solid #999;
+  font-weight: 700;
+  text-align: center !important;
+}
+
+.header-02 {
+  border-right: 1px solid #999;
+  border-bottom: 1px solid #999;
+  text-align: center;
+  font-weight: 700;
+}
+
+.header-03 {
+  border-bottom: 1px solid #999;
+  text-align: center;
+  font-weight: 700;
+}

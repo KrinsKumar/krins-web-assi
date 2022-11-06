@@ -9,7 +9,9 @@
  */
 
 window.categories = [
-  /*
-    { id: "c1", description: "Category 1" },
-   */
+  { id: "all-keyboards", description: "All Keyboards" },
+  { id: "mechanical-keyboards", description: "Mechanical" },
+  { id: "optical-keyboards", description: "Optical" },
+  { id: "full-keyboards", description: "Full Size" },
+  { id: "compact-keyboards", description: "Compact" }
 ];
