@@ -2,13 +2,12 @@
  * Override any styles here that you want to change (optional)...
  */
 
- /*For dark mode scroll bar*/
- :root {
+/*For dark mode scroll bar*/
+:root {
   color-scheme: dark;
 }
 
-
- body {
+body {
   background-color: #111111;
 }
 

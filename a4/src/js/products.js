@@ -92,10 +92,7 @@ window.products = [
     description: `Spherically dished keys match the shape of your fingertips, offering satisfying feedback with every tap`,
     price: 14900,
     discontinued: false,
-    categories: [
-      "all-keyboards",
-      "full-keyboards",
-    ]
+    categories: ["all-keyboards", "full-keyboards"]
   },
 
   {
@@ -104,10 +101,7 @@ window.products = [
     description: `Type more naturally with a curved, split KeyFrame. The sloping keyboard reduces strain on your wrists and forearms.`,
     price: 12999,
     discontinued: false,
-    categories: [
-      "all-keyboards",
-      "mechanical-keyboards",
-    ]
+    categories: ["all-keyboards", "mechanical-keyboards"]
   },
 
   {
@@ -116,11 +110,7 @@ window.products = [
     description: `Brushed metal top plate and octagonal-shaped keycaps`,
     price: 8299,
     discontinued: false,
-    categories: [
-      "all-keyboards",
-      "mechanical-keyboards",
-      "compact-keyboards"
-    ]
+    categories: ["all-keyboards", "mechanical-keyboards", "compact-keyboards"]
   },
 
   {
@@ -129,10 +119,7 @@ window.products = [
     description: `A million combinations of lights`,
     price: 5259,
     discontinued: true,
-    categories: [
-      "all-keyboards",
-      "compact-keyboards"
-    ]
+    categories: ["all-keyboards", "compact-keyboards"]
   },
 
   {
@@ -141,11 +128,7 @@ window.products = [
     description: `World's fastest keyboard`,
     price: 29999,
     discontinued: true,
-    categories: [
-      "all-keyboards",
-      "optical-keyboards",
-      "compact-keyboards"
-    ]
+    categories: ["all-keyboards", "optical-keyboards", "compact-keyboards"]
   },
 
   {
@@ -154,11 +137,7 @@ window.products = [
     description: `Features durable mechanical switches available in Blue (clicky), Brown (tactile) and Red (smooth linear) to meet your typing preference.`,
     price: 19980,
     discontinued: false,
-    categories: [
-      "all-keyboards",
-      "optical-keyboards",
-      "compact-keyboards"
-    ]
+    categories: ["all-keyboards", "optical-keyboards", "compact-keyboards"]
   },
 
   {
@@ -167,11 +146,7 @@ window.products = [
     description: `Laser Engraved Keycaps shine through ABS keycaps provide crisp legible legends in fully lit and dimly lit settings.`,
     price: 19099,
     discontinued: false,
-    categories: [
-      "all-keyboards",
-      "optical-keyboards",
-      "compact-keyboards"
-    ]
+    categories: ["all-keyboards", "optical-keyboards", "compact-keyboards"]
   },
 
   {
@@ -180,10 +155,7 @@ window.products = [
     description: `Exclusive ROG switches feature centralized RGB lighting for all-round in-key illumination.`,
     price: 4900,
     discontinued: true,
-    categories: [
-      "all-keyboards",
-      "compact-keyboards"
-    ]
+    categories: ["all-keyboards", "compact-keyboards"]
   },
 
   {
@@ -192,11 +164,7 @@ window.products = [
     description: `Use Bluetooth to connect and switch between three devices at a time, enjoy up to 76 hours of low-latency gameplay in 2.4 GHz RF wireless mode, or use standard wired USB`,
     price: 22294,
     discontinued: false,
-    categories: [
-      "all-keyboards",
-      "full-keyboards",
-      "optical-keyboards",
-    ]
+    categories: ["all-keyboards", "full-keyboards", "optical-keyboards"]
   },
 
   {
@@ -205,10 +173,7 @@ window.products = [
     description: `As the first Hot Swap RGB gaming keyboard, GMMK features hot swap switch sockets so you can plug in and out switches as your DIY preference.`,
     price: 3200,
     discontinued: false,
-    categories: [
-      "all-keyboards",
-      "optical-keyboards",
-    ]
+    categories: ["all-keyboards", "optical-keyboards"]
   },
 
   {
@@ -217,10 +182,7 @@ window.products = [
     description: `Superior Ergonomics and Compatibility: With the in built stand, angle of the keyboard can be changed to match a more ergonomic typing experience.`,
     price: 1000,
     discontinued: true,
-    categories: [
-      "all-keyboards",
-      "mechanical-keyboards",
-    ]
+    categories: ["all-keyboards", "mechanical-keyboards"]
   },
 
   {
@@ -229,10 +191,7 @@ window.products = [
     description: `kit comes with OEM sculpted keycaps so your fingers and hand joints can preserve the jelly like substance and do not become stiff over time.`,
     price: 1800000000000000000,
     discontinued: true,
-    categories: [
-      "all-keyboards",
-      "optical-keyboards",
-    ]
+    categories: ["all-keyboards", "optical-keyboards"]
   },
 
   {
@@ -241,12 +200,7 @@ window.products = [
     description: `60% mechanical keyboard adopts advanced metal panel design, beautiful and strong.`,
     price: 18000,
     discontinued: false,
-    categories: [
-      "all-keyboards",
-      "optical-keyboards",
-      "mechanical-keyboards",
-      "full-keyboards",
-    ]
+    categories: ["all-keyboards", "optical-keyboards", "mechanical-keyboards", "full-keyboards"]
   },
 
   {
@@ -255,11 +209,6 @@ window.products = [
     description: `red switches mechanical keyboard adopted with classic red switches, that responds fast with no lag.`,
     price: 8400,
     discontinued: false,
-    categories: [
-      "all-keyboards",
-      "mechanical-keyboards",
-      "compact-keyboards",
-      "full-keyboards"
-    ]
+    categories: ["all-keyboards", "mechanical-keyboards", "compact-keyboards", "full-keyboards"]
   }
 ];
