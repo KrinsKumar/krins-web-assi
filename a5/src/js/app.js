@@ -19,10 +19,8 @@ const { products, categories } = window;
 
 function main() {
   console.log({ products, categories }, "Store Data");
-
   categories.forEach(addCategories); // adds the buttons for categories
   document.querySelectorAll(`button`).forEach(buttonClicked); // when a button from nav is clicked
-  addTableHeader();
   document.querySelector(`button`).click(); // clicks the first button
 }
 
@@ -68,9 +66,9 @@ function buttonClicked(button) {
       buttonClicked = e.composedPath()[1].id;
     }
 
-    // removes everything from the table to update
-    let tableBody = document.querySelector(`#products`);
-    tableBody.innerHTML = ``;
+    // // removes everything from the table to update
+    // let tableBody = document.querySelector(`#products`);
+    // tableBody.innerHTML = ``;
 
     // filters the list which are not discounted
     let filteredProducts = products.filter(function (product) {
@@ -79,58 +77,84 @@ function buttonClicked(button) {
       return flag1 && flag2;
     });
 
-    // updates the table for the specific section
+    // adds the cards dynamically
     for (let product of filteredProducts) {
-      let newRow = document.createElement(`tr`);
-      let newName = document.createElement(`td`);
-      newName.innerHTML = product.name;
-      newName.classList.add(`table-01`);
+      // creates new elements
+      let cardDiv = document.createElement('div');
+      let img = document.createElement('img');
+      let textDiv = document.createElement('div');
+      let h2 = document.createElement('h2');
+      let p = document.createElement('p');
+      let span = document.createElement('span');
 
-      let newDesc = document.createElement(`td`);
-      newDesc.innerHTML = product.description;
-      newDesc.classList.add(`table-02`);
+      span.innerHTML = product.price;
+      p.innerHTML = product.description;
+      p.appendChild(span);
+      h2.innerHTML = product.name;
+      textDiv.appendChild(h2);
+      textDiv.appendChild(p);
+      textDiv.classList.add(`card-text`);
+      img.src = product.imageUrl;
+      img.alt = 'photo of a keyboard';
+      cardDiv.appendChild(img);
+      cardDiv.appendChild(textDiv);
+      cardDiv.classList.add(`card`);
+      document.querySelector('.card-container').appendChild(cardDiv);
 
-      let newPrice = document.createElement(`td`);
-      let price = product.price;
-      price = (price / 100).toFixed(2);
-
-      newPrice.innerHTML = `$` + price;
-      newPrice.classList.add(`table-03`);
-
-      newRow.appendChild(newName);
-      newRow.appendChild(newDesc);
-      newRow.appendChild(newPrice);
-
-      // onclick in the row
-      newRow.onclick = function () {
-        let message = product.name + `- ` + product.description + ` AT $` + price;
-        console.log(message);
-      };
-
-      tableBody.appendChild(newRow);
     }
+
+    // // updates the table for the specific section
+    // for (let product of filteredProducts) {
+    //   let newRow = document.createElement(`tr`);
+    //   let newName = document.createElement(`td`);
+    //   newName.innerHTML = product.name;
+    //   newName.classList.add(`table-01`);
+
+    //   let newDesc = document.createElement(`td`);
+    //   newDesc.innerHTML = product.description;
+    //   newDesc.classList.add(`table-02`);
+
+    //   let newPrice = document.createElement(`td`);
+    //   let price = product.price;
+    //   price = (price / 100).toFixed(2);
+
+    //   newPrice.innerHTML = `$` + price;
+    //   newPrice.classList.add(`table-03`);
+
+    //   newRow.appendChild(newName);
+    //   newRow.appendChild(newDesc);
+    //   newRow.appendChild(newPrice);
+
+    //   // onclick in the row
+    //   newRow.onclick = function () {
+    //     let message = product.name + `- ` + product.description + ` AT $` + price;
+    //     console.log(message);
+    //   };
+
+    //   tableBody.appendChild(newRow);
+    // }
   });
 }
 
-function addTableHeader() {
-  let tableBody = document.querySelector(`#table-header`);
+// function addTableHeader() {
+//   let tableBody = document.querySelector(`#table-header`);
 
-  let newRow = document.createElement(`tr`);
-  let newName = document.createElement(`td`);
-  newName.innerHTML = `Name`;
-  newName.classList.add(`header-01`);
+//   let newRow = document.createElement(`tr`);
+//   let newName = document.createElement(`td`);
+//   newName.innerHTML = `Name`;
+//   newName.classList.add(`header-01`);
 
-  let newDesc = document.createElement(`td`);
-  newDesc.innerHTML = `Description`;
-  newDesc.classList.add(`header-02`);
+//   let newDesc = document.createElement(`td`);
+//   newDesc.innerHTML = `Description`;
+//   newDesc.classList.add(`header-02`);
 
-  let newPrice = document.createElement(`td`);
-  newPrice.innerHTML = `Price`;
-  newPrice.classList.add(`header-03`);
+//   let newPrice = document.createElement(`td`);
+//   newPrice.innerHTML = `Price`;
+//   newPrice.classList.add(`header-03`);
 
-  newRow.appendChild(newName);
-  newRow.appendChild(newDesc);
-  newRow.appendChild(newPrice);
+//   newRow.appendChild(newName);
+//   newRow.appendChild(newDesc);
+//   newRow.appendChild(newPrice);
 
-  tableBody.appendChild(newRow);
-}
+//   tableBody.appendChild(newRow);
+// }

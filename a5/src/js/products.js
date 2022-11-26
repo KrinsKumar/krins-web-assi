@@ -29,7 +29,8 @@ window.products = [
     description: `The Apex 3 is your first step into next level gaming. Build to outshine, outperform, and outlast the competition.`,
     price: 4900,
     discontinued: false,
-    categories: ["all-keyboards", "full-keyboards"]
+    categories: ["all-keyboards", "full-keyboards"],
+    imageUrl: 'img/key3.jpg'
   },
 
   {
@@ -38,7 +39,8 @@ window.products = [
     description: `Redragon k552 mechanical red switches Linear switches quiet click sound fast action with minimal resistance`,
     price: 4599,
     discontinued: false,
-    categories: ["all-keyboards", "mechanical-keyboards"]
+    categories: ["all-keyboards", "mechanical-keyboards"],
+    imageUrl: 'img/key4.jpg'
   },
 
   {
@@ -47,7 +49,8 @@ window.products = [
     description: `Aircraft grade anodized brushed aluminum frame, built to withstand a lifetime of gaming`,
     price: 22600,
     discontinued: false,
-    categories: ["all-keyboards", "mechanical-keyboards", "compact-keyboards"]
+    categories: ["all-keyboards", "mechanical-keyboards", "compact-keyboards"],
+    imageUrl: 'img/key6.jpg'
   },
 
   {
@@ -56,7 +59,8 @@ window.products = [
     description: `Believe it or not, this is the first generation of RGB three-mode wireless keyboards on the market.`,
     price: 10999,
     discontinued: true,
-    categories: ["all-keyboards", "optical-keyboards", "compact-keyboards"]
+    categories: ["all-keyboards", "optical-keyboards", "compact-keyboards"],
+    imageUrl: 'img/key2.jpg'
   },
 
   {
@@ -65,7 +69,8 @@ window.products = [
     description: `16.8 million color combinations of RGB modes including Wave, Twinkle, Aurora, Musical Rhythm, Radar and Ripple`,
     price: 5085,
     discontinued: false,
-    categories: ["all-keyboards", "mechanical-keyboards", "compact-keyboards"]
+    categories: ["all-keyboards", "mechanical-keyboards", "compact-keyboards"],
+    imageUrl: 'img/key5.jpg'
   },
 
   {
@@ -74,7 +79,8 @@ window.products = [
     description: `Hot-swap keyboard with optical switch allows you to change switches without soldering`,
     price: 8800,
     discontinued: false,
-    categories: ["all-keyboards", "compact-keyboards"]
+    categories: ["all-keyboards", "compact-keyboards"],
+    imageUrl: 'img/key1.jpg'
   },
 
   {
@@ -83,7 +89,8 @@ window.products = [
     description: `The K100 RGB is the pinnacle of CORSAIR keyboards, offering the cutting-edge performance, style and durability.`,
     price: 26999,
     discontinued: false,
-    categories: ["all-keyboards", "full-keyboards", "optical-keyboards"]
+    categories: ["all-keyboards", "full-keyboards", "optical-keyboards"],
+    imageUrl: 'img/key4.jpg'
   },
 
   {
@@ -92,7 +99,8 @@ window.products = [
     description: `Spherically dished keys match the shape of your fingertips, offering satisfying feedback with every tap`,
     price: 14900,
     discontinued: false,
-    categories: ["all-keyboards", "full-keyboards"]
+    categories: ["all-keyboards", "full-keyboards"],
+    imageUrl: 'img/key2.jpg'
   },
 
   {
@@ -101,16 +109,18 @@ window.products = [
     description: `Type more naturally with a curved, split KeyFrame. The sloping keyboard reduces strain on your wrists and forearms.`,
     price: 12999,
     discontinued: false,
-    categories: ["all-keyboards", "mechanical-keyboards"]
+    categories: ["all-keyboards", "mechanical-keyboards"],
+    imageUrl: 'img/key5.jpg'
   },
 
   {
     id: `010`,
     name: `MSI Vigor `,
-    description: `Brushed metal top plate and octagonal-shaped keycaps`,
+    description: `Brushed metal top plate and octagonal-shaped keycaps.`,
     price: 8299,
     discontinued: false,
-    categories: ["all-keyboards", "mechanical-keyboards", "compact-keyboards"]
+    categories: ["all-keyboards", "mechanical-keyboards", "compact-keyboards"],
+    imageUrl: 'img/key6.jpg'
   },
 
   {
@@ -119,7 +129,8 @@ window.products = [
     description: `A million combinations of lights`,
     price: 5259,
     discontinued: true,
-    categories: ["all-keyboards", "compact-keyboards"]
+    categories: ["all-keyboards", "compact-keyboards"],
+    imageUrl: 'img/key2.jpg'
   },
 
   {
@@ -128,7 +139,8 @@ window.products = [
     description: `World's fastest keyboard`,
     price: 29999,
     discontinued: true,
-    categories: ["all-keyboards", "optical-keyboards", "compact-keyboards"]
+    categories: ["all-keyboards", "optical-keyboards", "compact-keyboards"],
+    imageUrl: 'img/key4.jpg'
   },
 
   {
@@ -137,7 +149,8 @@ window.products = [
     description: `Features durable mechanical switches available in Blue (clicky), Brown (tactile) and Red (smooth linear) to meet your typing preference.`,
     price: 19980,
     discontinued: false,
-    categories: ["all-keyboards", "optical-keyboards", "compact-keyboards"]
+    categories: ["all-keyboards", "optical-keyboards", "compact-keyboards"],
+    imageUrl: 'img/key3.jpg'
   },
 
   {
@@ -146,7 +159,8 @@ window.products = [
     description: `Laser Engraved Keycaps shine through ABS keycaps provide crisp legible legends in fully lit and dimly lit settings.`,
     price: 19099,
     discontinued: false,
-    categories: ["all-keyboards", "optical-keyboards", "compact-keyboards"]
+    categories: ["all-keyboards", "optical-keyboards", "compact-keyboards"],
+    imageUrl: 'img/key1.jpg'
   },
 
   {
@@ -155,7 +169,8 @@ window.products = [
     description: `Exclusive ROG switches feature centralized RGB lighting for all-round in-key illumination.`,
     price: 4900,
     discontinued: true,
-    categories: ["all-keyboards", "compact-keyboards"]
+    categories: ["all-keyboards", "compact-keyboards"],
+    imageUrl: 'img/key6.jpg'
   },
 
   {
@@ -164,7 +179,8 @@ window.products = [
     description: `Use Bluetooth to connect and switch between three devices at a time, enjoy up to 76 hours of low-latency gameplay in 2.4 GHz RF wireless mode, or use standard wired USB`,
     price: 22294,
     discontinued: false,
-    categories: ["all-keyboards", "full-keyboards", "optical-keyboards"]
+    categories: ["all-keyboards", "full-keyboards", "optical-keyboards"],
+    imageUrl: 'img/key2.jpg'
   },
 
   {
@@ -173,7 +189,8 @@ window.products = [
     description: `As the first Hot Swap RGB gaming keyboard, GMMK features hot swap switch sockets so you can plug in and out switches as your DIY preference.`,
     price: 3200,
     discontinued: false,
-    categories: ["all-keyboards", "optical-keyboards"]
+    categories: ["all-keyboards", "optical-keyboards"],
+    imageUrl: 'img/key4.jpg'
   },
 
   {
@@ -182,7 +199,8 @@ window.products = [
     description: `Superior Ergonomics and Compatibility: With the in built stand, angle of the keyboard can be changed to match a more ergonomic typing experience.`,
     price: 1000,
     discontinued: true,
-    categories: ["all-keyboards", "mechanical-keyboards"]
+    categories: ["all-keyboards", "mechanical-keyboards"],
+    imageUrl: 'img/key5.jpg'
   },
 
   {
@@ -191,7 +209,8 @@ window.products = [
     description: `kit comes with OEM sculpted keycaps so your fingers and hand joints can preserve the jelly like substance and do not become stiff over time.`,
     price: 1800000000000000000,
     discontinued: true,
-    categories: ["all-keyboards", "optical-keyboards"]
+    categories: ["all-keyboards", "optical-keyboards"],
+    imageUrl: 'img/key1.jpg'
   },
 
   {
@@ -200,7 +219,8 @@ window.products = [
     description: `60% mechanical keyboard adopts advanced metal panel design, beautiful and strong.`,
     price: 18000,
     discontinued: false,
-    categories: ["all-keyboards", "optical-keyboards", "mechanical-keyboards", "full-keyboards"]
+    categories: ["all-keyboards", "optical-keyboards", "mechanical-keyboards", "full-keyboards"],
+    imageUrl: 'img/key5.jpg'
   },
 
   {
@@ -209,6 +229,7 @@ window.products = [
     description: `red switches mechanical keyboard adopted with classic red switches, that responds fast with no lag.`,
     price: 8400,
     discontinued: false,
-    categories: ["all-keyboards", "mechanical-keyboards", "compact-keyboards", "full-keyboards"]
+    categories: ["all-keyboards", "mechanical-keyboards", "compact-keyboards", "full-keyboards"],
+    imageUrl: 'img/key2.jpg'
   }
 ];

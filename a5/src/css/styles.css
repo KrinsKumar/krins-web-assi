@@ -9,6 +9,7 @@
 
 body {
   background-color: #111111;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 header {
@@ -34,6 +35,7 @@ button {
   width: 140px;
   height: 140px;
   transition: all 0.1s ease-in-out;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 button p {
@@ -62,6 +64,7 @@ button:hover {
 table {
   white-space: normal;
   border: 1px solid #999;
+  margin-top: 10px;
 }
 
 tr {
@@ -102,4 +105,36 @@ table tr {
   border-bottom: 1px solid #999;
   text-align: center;
   font-weight: 700;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #888888;
+  padding: 0;
+  border-radius: 10px;
+  max-width: 300px;
+}
+
+.card img {
+  width: 100%;
+  margin: 0;
+  border-radius: 10px 10px 0 0 ;
+}
+
+.card .card-text {
+  margin: 0px 10px;
+}
+
+.card-text h2 {
+  margin: 0;
+}
+
+.card-text p {
+  margin: 10px 0;
 }
