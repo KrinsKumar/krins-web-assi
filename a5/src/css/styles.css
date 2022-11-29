@@ -59,6 +59,7 @@ button:hover {
 
 #category {
   color: #44d62c;
+  text-align: center;
 }
 
 table {
@@ -110,7 +111,7 @@ table tr {
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
   justify-content: center;
 }
 
@@ -137,4 +138,10 @@ table tr {
 
 .card-text p {
   margin: 10px 0;
+}
+
+.card-text span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bolder;
 }

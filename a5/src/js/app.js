@@ -66,9 +66,8 @@ function buttonClicked(button) {
       buttonClicked = e.composedPath()[1].id;
     }
 
-    // // removes everything from the table to update
-    // let tableBody = document.querySelector(`#products`);
-    // tableBody.innerHTML = ``;
+    //  removes everything from the container to update
+      document.querySelector('.card-container').innerHTML = '';
 
     // filters the list which are not discounted
     let filteredProducts = products.filter(function (product) {
@@ -87,7 +86,7 @@ function buttonClicked(button) {
       let p = document.createElement('p');
       let span = document.createElement('span');
 
-      span.innerHTML = product.price;
+      span.innerHTML = product.price + '$';
       p.innerHTML = product.description;
       p.appendChild(span);
       h2.innerHTML = product.name;
