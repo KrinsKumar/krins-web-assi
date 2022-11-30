@@ -1,0 +1,147 @@
+/*
+    c1 = #233142
+    t1 = #ffffff
+
+    c2 = #455d7a
+    t2 = #BDBDBD
+    
+    t3 = #757575
+    
+    c4 = #e3e3e3
+    t4 = #212121
+*/
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body, html, main {
+    width: 100%;
+}
+
+body, html, nav, aside {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    background-color: #80BD9E;
+}
+
+.nav-list li {
+    height: 2rem;
+    margin: 10px;
+}
+
+.nav-list {
+    width: 120px;
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #C4DFE6;
+    color: #455d7a;
+    font-weight: 600;
+    font-size: large;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: #455d7a;
+}
+
+.contactme-hyper {
+    text-decoration: none;
+    color: #C4DFE6 !important;
+    background-color: #455d7a;
+    border: 1px solid #455d7a;
+    width: 90%;
+    margin: 0 auto;
+    transition: all ease-in-out 200ms;
+    border-radius: 5px;
+}
+.contactme-hyper:hover {
+    background-color: #C4DFE6;
+    color: #455d7a !important;
+}
+.contactme-hyper li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+#about {
+    display: flex;
+    justify-content: center;
+}
+
+.skills {
+    list-style: none;
+    background-color: #757575;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.skills-text {
+    text-align: center;
+    color: #233142;
+    transition: all ease-in-out 200ms;
+    margin-bottom: 6px;
+}
+
+.skills li svg {
+    height: 5rem;
+    width: 5rem;
+    transition: all ease-in-out 200ms;
+}
+.skills li svg:hover {
+    transform: scale(105%);
+}
+
+.react-st0 {
+    fill: transparent;
+}
+.react-st1 { 
+    fill:#233142;
+}
+.react-st2 { 
+    fill:none;
+    stroke:#233142;
+    stroke-width:144.7456;
+    stroke-miterlimit:10
+}
+#react-svg path, #react-svg circle {
+    transition: all ease-in-out 200ms;
+}
+
+.footer {
+    margin-top: 10px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer ul li svg {
+    height: 2rem;
+    width: 2rem;
+    transition: all ease-in-out 200ms;
+}
+.footer ul li  svg:hover {
+    transform: scale(105%);
+}
+
+.git-stroke {
+    fill:#233142;
+}
