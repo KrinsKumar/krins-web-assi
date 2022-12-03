@@ -1,20 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Arizonia&family=Titillium+Web:wght@300;400;600&family=Yeseva+One&display=swap');
 /*
-    c1 = #233142
-    t1 = #ffffff
-
-    c2 = #455d7a
-    t2 = #BDBDBD
-    
-    t3 = #757575
-    
-    c4 = #e3e3e3
-    t4 = #212121
+    font-family: 'Abhaya Libre', serif;
+    font-family: 'Arizonia', cursive;
+    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Yeseva One', cursive;
 */
 
 
 * {
     box-sizing: border-box;
     margin: 0;
+}
+
+html {
+    background-color: #C4DFE6;
 }
 
 body, html, main {
@@ -30,13 +29,17 @@ body {
     background-color: #80BD9E;
 }
 
-.nav-list li {
+.nav-list a li {
     height: 2rem;
-    margin: 10px;
+    font-size: 0.9em;
+}
+
+aside {
+    width: 150px;
 }
 
 .nav-list {
-    width: 120px;
+    width: 100%;
     text-align: center;
     list-style: none;
     padding: 0;
@@ -47,11 +50,13 @@ body {
     color: #455d7a;
     font-weight: 600;
     font-size: large;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 .nav-list a {
     text-decoration: none;
     color: #455d7a;
+    padding: 0;
 }
 
 .contactme-hyper {
@@ -59,7 +64,6 @@ body {
     color: #C4DFE6 !important;
     background-color: #455d7a;
     border: 1px solid #455d7a;
-    width: 90%;
     margin: 0 auto;
     transition: all ease-in-out 200ms;
     border-radius: 5px;
@@ -74,11 +78,48 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0;
+    padding: 4px;
 }
 
 #about {
+    font-family: 'Titillium Web', sans-serif;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #757575;
+}
+
+#about div {
+    min-width: 200px;
+}
+
+.me {
+    font-family: 'Arizonia', cursive;
+    letter-spacing: .15em;
+    text-align: center;
+}
+ 
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.info-left, .info-right {
+    list-style: none;
+    padding: 0;
+}
+
+.info-left li {
+    font-weight: 600;
+}
+
+.certificates {
+    background-color: #80BD9E;
+    font-family: 'Arizonia', cursive;
+    letter-spacing: .15em;
+    text-align: center;
 }
 
 .skills {
@@ -88,6 +129,8 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .skills-text {
@@ -95,12 +138,15 @@ body {
     color: #233142;
     transition: all ease-in-out 200ms;
     margin-bottom: 6px;
+    font-family: 'Titillium Web', sans-serif;
 }
+
 
 .skills li svg {
     height: 5rem;
     width: 5rem;
     transition: all ease-in-out 200ms;
+    margin-top: 8px;
 }
 .skills li svg:hover {
     transform: scale(105%);
@@ -122,8 +168,51 @@ body {
     transition: all ease-in-out 200ms;
 }
 
+.html-1 {
+    fill: #233142;
+    transition: all ease-in-out 200ms;
+}
+.html-2 {
+    fill: #2c3e53;
+    transition: all ease-in-out 200ms;
+}
+.html-text {
+    fill: #757575;
+    transition: all ease-in-out 200ms;
+}
+.css-1 {
+    fill: #233142;
+    transition: all ease-in-out 200ms;
+}
+.css-2 {
+    fill: #2c3e53;
+    transition: all ease-in-out 200ms;
+}
+.css-3 {
+    fill: #757575;
+    transition: all ease-in-out 200ms;
+}
+
+.js-1 {
+    fill: #233142;
+    transition: all ease-in-out 200ms;
+}
+.js-2 {
+    fill: #757575;
+    transition: all ease-in-out 200ms;
+}
+
+.project {
+    background-color: #80BD9E;
+    font-family: 'Arizonia', cursive;
+    letter-spacing: .15em;
+    text-align: center;
+}
+
+
+
 .footer {
-    margin-top: 10px;
+    background-color: #757575;
 }
 
 .footer ul {
@@ -131,12 +220,14 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
+    gap: 10px;
 }
 
 .footer ul li svg {
-    height: 2rem;
-    width: 2rem;
+    height: 3rem;
+    width: 3rem;
     transition: all ease-in-out 200ms;
+    margin: 10px 5px;
 }
 .footer ul li  svg:hover {
     transform: scale(105%);
@@ -145,3 +236,56 @@ body {
 .git-stroke {
     fill:#233142;
 }
+
+.linkedin-stroke {
+    fill:#233142;
+}
+.linkedin-text {
+    fill:#757575;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 500px){
+    body {
+        flex-direction: column;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+    .nav-list a li {
+        font-size: 0.5rem;
+        height: 1rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .nav-list a  {
+        margin: 2px;
+    }
+    
+    aside {
+        width: 100%;
+    }
+
+    .contactme-hyper {
+        margin: 0;
+    }
+
+}
+
