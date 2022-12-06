@@ -14,14 +14,14 @@
                     <a href="#about">
                         <li>About</li>
                     </a>
-                    <a href="#about">
-                        <li>Certifications</li>
-                    </a>
+                    <a href="#project">
+                        <li>Projects</li>
                     </a>
                     <a href="#skills">
-                         <li>Skills</li>
-                    <a href="#about">
-                         <li>Projects</li>
+                      <li>Skills</li>
+                    </a>
+                    <a href="#certificates">
+                        <li>Certifications</li>
                     </a>
                     <a href="" class="contactme-hyper">
                         <li>Contact Me</li>
@@ -32,37 +32,51 @@
         <main>
             <div class="me">
                 <h1>Krinskumar Vaghasia</h1>
+                <p class="intro">
+                    I am a computer programming and analysis student at Seneca College
+                    and I love to create new things and learn new technologies on the web. The most exhilarating 
+                    is the debugging process because I like problem solving especially when
+                    the problem makes me scratch my head.
+                </p>
             </div>
-            <section id="about">
-                <div class="about-me">
-                    <h2>About-Me</h2>
-                    <div class="info">
-                        <ul class="info-left">
-                            <li>Age:</li>
-                            <li>Email:</li>
-                            <li>Class Section:</li>
-                            <li>Student-Id:</li>
-                            <li>Instructor:</li>
-                            <li></li>
-                        </ul>
-                        <ul class="info-right">
-                            <li>19</li>
-                            <li>kvaghasia@myseneca.ca</li>
-                            <li>Web222NAA</li>
-                            <li>169722212</li>
-                            <li>Instructor:</li>
-                            <li></li>
-                        </ul>
+            <section class="about">
+                    <div class="switch-container">
+                        <input type="checkbox" id="switch" />
+                        <label for="switch"></label>
+                    </div>
+                <div id="about">
+                    <div class="about-me">
+                        <h2>About-Me</h2>
+                        <div class="info">
+                            <ul class="info-left">
+                                <li>Age:</li>
+                                <li>Email:</li>
+                                <li>Class Section:</li>
+                                <li>Student-Id:</li>
+                                <li>Instructor:</li>
+                                <li></li>
+                            </ul>
+                            <ul class="info-right">
+                                <li>19</li>
+                                <li>kvaghasia@myseneca.ca</li>
+                                <li>Web222NAA</li>
+                                <li>169722212</li>
+                                <li>David Humphrey</li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="honesty" hidden>
+                        <h2>Academic Honesty</h2>
+                        <p>
+                            I declare that my assessment is wholly my own work in accordance with Seneca Academic Policy. No part of this assessment has been copied manually or electronically from any other source (including web sites) except for the information supplied by the WEB222 instructors and / or made available in this assessment for my use. I also declare that no part of this assignment has been distributed to other students.
+                        </p>
                     </div>
                 </div>
-                <div class="honesty">
-                    <h2>Academic Honesty</h2>
-                </div>
             </section>
-            <section class="certificates">
-                <div class="certificates">
-                    <h2>Certificates</h2>
-
+            <section class="project" id="project">
+                <h2>Projects</h2>
+                <div class="project-container">
                 </div>
             </section>
             <section id="skills">
@@ -111,9 +125,11 @@
                     </li>
                 </ul>
             </section>
-            <section class="project">
-                <div class="project-container">
-                    <h2>Projects</h2>
+            <section class="certificates" id="certificates">
+                <div class="certificates">
+                    <h2>Certificates</h2>
+                    <div class="certificate-container">
+                    </div>
                 </div>
             </section>
             <section class="footer">
@@ -145,6 +161,7 @@
             </section>
         </main>
         
+        <script src="data.js"></script>
         <script src="index.js"></script>
     </body>
 </html>
