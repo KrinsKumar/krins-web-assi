@@ -160,14 +160,13 @@
         <div class="row">
             <div class="form-group col">
                 <label for="meeting-time">Schedule a Meeting</label>
-                <div class="row other-selected col-8" hidden>
+                <div class="row other-selected col-8">
                     <div class="form-group col">
                         <input
-                            id="other-info"
+                            id="meeting-time"
                             class="form-control"
-                            id="first-name"
-                            name="first-name"
-                            type="text">
+                            name="meeting-time"
+                            type="datetime-local">
                     </div>
                 </div>
             </div>
@@ -183,12 +182,6 @@
                 rows="5"></textarea>
             </div>
         </div>
-
-        <label for="meeting-time">Choose a time for your appointment:</label>
-
-        <input type="datetime-local" id="meeting-time"
-        name="meeting-time" value="2018-06-12T19:30"
-        min="2018-06-07T00:00" max="2018-06-14T00:00">
 
         <div class="d-flex flex-row-reverse mt-2">
           <input class="btn btn-primary" type="submit" name="submit" value="Submit">
