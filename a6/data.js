@@ -25,7 +25,55 @@ window.certificates =  [
         title: "Web Development with HTML, CSS, JavaScript",
         link: `https://www.coursera.org/account/accomplishments/verify/GDA5FA2XEEWU`,
         institution: `IBM`
-    }
+    }/*,
+    {
+        id: 1,
+        title: "Harvard's Introduction to Computer Science",
+        link: `https://cs50.harvard.edu/certificates/feb4aaa0-1c88-4551-9ac7-209b60f71fd2`,
+        institution: `CS50`
+    },
+    {
+        id: 2,
+        title: "Web Development with HTML, CSS, JavaScript",
+        link: `https://www.coursera.org/account/accomplishments/verify/GDA5FA2XEEWU`,
+        institution: `IBM`
+    },
+    {
+        id: 1,
+        title: "Harvard's Introduction to Computer Science",
+        link: `https://cs50.harvard.edu/certificates/feb4aaa0-1c88-4551-9ac7-209b60f71fd2`,
+        institution: `CS50`
+    },
+    {
+        id: 2,
+        title: "Web Development with HTML, CSS, JavaScript",
+        link: `https://www.coursera.org/account/accomplishments/verify/GDA5FA2XEEWU`,
+        institution: `IBM`
+    },
+    {
+        id: 1,
+        title: "Harvard's Introduction to Computer Science",
+        link: `https://cs50.harvard.edu/certificates/feb4aaa0-1c88-4551-9ac7-209b60f71fd2`,
+        institution: `CS50`
+    },
+    {
+        id: 2,
+        title: "Web Development with HTML, CSS, JavaScript",
+        link: `https://www.coursera.org/account/accomplishments/verify/GDA5FA2XEEWU`,
+        institution: `IBM`
+    },
+    {
+        id: 1,
+        title: "Harvard's Introduction to Computer Science",
+        link: `https://cs50.harvard.edu/certificates/feb4aaa0-1c88-4551-9ac7-209b60f71fd2`,
+        institution: `CS50`
+    },
+    {
+        id: 2,
+        title: "Web Development with HTML, CSS, JavaScript",
+        link: `https://www.coursera.org/account/accomplishments/verify/GDA5FA2XEEWU`,
+        institution: `IBM`
+    },*/
     
 ]
 

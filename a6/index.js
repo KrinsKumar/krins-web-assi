@@ -26,7 +26,7 @@ function hoverEvents() {
     document.querySelector('#react-svg').addEventListener('mouseleave' ,function() {
         document.querySelector('.react-st1').style.fill = '#233142';
         document.querySelectorAll('.react-st2').forEach(function(element) {element.style.stroke = '#233142';})
-        document.querySelector('#skills-text-react').style.color = '#b8abab';
+        document.querySelector('#skills-text-react').style.color = '#FF7597';
     });
     //github 
     document.querySelector('#git-svg').addEventListener('mouseenter' ,function() {
@@ -42,7 +42,7 @@ function hoverEvents() {
     });
     document.querySelector('#linkedin-svg').addEventListener('mouseleave' ,function() {
         document.querySelector('.linkedin-stroke').style.fill = '#233142';
-        document.querySelector('.linkedin-text').style.fill = '#b8abab';
+        document.querySelector('.linkedin-text').style.fill = '#FF7597';
     });
     //html 
     document.querySelector('#html-svg').addEventListener('mouseenter' ,function() {
@@ -55,7 +55,7 @@ function hoverEvents() {
         document.querySelector('.html-1').style.fill = '#233142';
         document.querySelector('.html-2').style.fill = '#2c3e53';
         document.querySelector('.html-text').style.fill = '#b8abab';
-        document.querySelector('#skills-text-html').style.color = '#b8abab';
+        document.querySelector('#skills-text-html').style.color = '#FF7597';
     });
     //css 
     document.querySelector('#css-svg').addEventListener('mouseenter' ,function() {
@@ -68,7 +68,7 @@ function hoverEvents() {
         document.querySelector('.css-1').style.fill = '#233142';
         document.querySelector('.css-2').style.fill = '#2c3e53';
         document.querySelector('.css-3').style.fill = '#b8abab';
-        document.querySelector('#skills-text-css').style.color = '#b8abab';
+        document.querySelector('#skills-text-css').style.color = '#FF7597';
         
     });
     //js
@@ -80,7 +80,7 @@ function hoverEvents() {
     document.querySelector('#js-svg').addEventListener('mouseleave' ,function() {
         document.querySelector('.js-1').style.fill = '#233142';
         document.querySelector('.js-2').style.fill = '#b8abab';
-        document.querySelector('#skills-text-js').style.color = '#b8abab';
+        document.querySelector('#skills-text-js').style.color = '#FF7597';
     });
    
 }

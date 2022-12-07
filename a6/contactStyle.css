@@ -1,0 +1,31 @@
+:root {
+    color-scheme: dark;
+}
+
+body {
+    background-color: #121212;
+    color: white;
+}
+
+h1 {
+    color: #BB86FC;
+}
+
+
+label[required]::after {
+    content: ' *';
+    color: #FF7597;
+}
+
+datalist {
+    color: black;
+    background-color: black;
+}
+
+.radio-div {
+    margin-bottom: 0;
+}
+
+.back {
+    margin-right: 15px;
+}

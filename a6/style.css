@@ -17,7 +17,7 @@
 }
 
 html {
-    background-color: #C4DFE6;
+    background-color: #121212;
 }
 
 body, html, main {
@@ -50,10 +50,10 @@ aside {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #C4DFE6;
+    background-color: #121212;
     color: #455d7a;
     font-weight: 600;
-    font-size: large;
+    font-size: larger;
     font-family: 'Titillium Web', sans-serif;
 }
 
@@ -83,6 +83,19 @@ aside {
     justify-content: center;
     margin: 0;
     padding: 4px;
+}
+
+.education-list {
+    list-style: none;
+    padding: 0;
+    color: #FF7597;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.education-list li {
+    margin: 10px;
 }
 
 .certificate-container {
@@ -126,7 +139,7 @@ h2 {
 }
 
 .about {
-    background-color: #1F1B24;
+    background-color: #121212;
     height: 300px;
     padding: 10px;
     text-align: center;
@@ -175,6 +188,30 @@ h2 {
     text-align: left;
 }
 
+.intro-container {
+    display: flex;
+    justify-content: center;
+}
+
+.intro-container img {
+    max-width: 200px;
+    max-width: 200px;
+    max-height: 265px;
+    max-height: 265px;
+}
+
+.buttons-container {
+    font-family: 'Titillium Web', sans-serif;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.buttons-container a {
+    border: 1px #BB86FC solid;
+    text-decoration: none;
+    padding: 5px;
+}
 
 .me {
     font-family: 'Arizonia', cursive;
@@ -182,6 +219,11 @@ h2 {
     text-align: center;
     color: #BB86FC;
     margin-top: 10px;
+    background-color: #1F1B24;
+}
+
+h1 {
+    margin: 10px;
 }
  
 .switch-container {
@@ -198,7 +240,7 @@ label {
     cursor: pointer;
     width: 200px;
     height: 100px;
-    background: #121212;
+    background: #1F1B24;
     display: block;
     border-radius: 100px;
     position: relative;
@@ -220,7 +262,7 @@ label:after {
     color: #FFFFFF;
 }
 input:checked + label {
-    background: #121212;
+    background: #1F1B24;
 }
 input:checked + label:after {
     content: 'Honesty';
@@ -229,6 +271,18 @@ input:checked + label:after {
 }
 label:active:after {
     width: 130px;
+}
+
+.education {
+    background-color: #1F1B24;
+}
+
+.education h2 {
+    font-family: 'Arizonia', cursive;
+    letter-spacing: .15em;
+    text-align: center;
+    color: #BB86FC;
+    margin-top: 10px;
 }
 
 .certificates {
@@ -252,7 +306,7 @@ label:active:after {
 
 .skills-text {
     text-align: center;
-    color: #b8abab;
+    color: #FF7597;
     transition: all ease-in-out 200ms;
     margin-bottom: 6px;
     font-family: 'Titillium Web', sans-serif;
@@ -404,7 +458,18 @@ figure img {
 
 
 
+@media (max-width: 780px){
+    .intro-container {
+        flex-direction: column;
+        gap: 20px;
+        justify-content: space-around;
+    }
 
+    .intro-container img {
+        align-self: center;
+        margin-bottom: 20px;
+    }
+}
 
 
 
@@ -448,6 +513,10 @@ figure img {
     figure {
         transform: scale(105%);
         margin: 20px;
+    }
+
+    .me {
+        min-height: 700px;
     }
 
 }
