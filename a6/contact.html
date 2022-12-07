@@ -158,15 +158,37 @@
         </div>
 
         <div class="row">
-          <div class="form-group col">
+            <div class="form-group col">
+                <label for="meeting-time">Schedule a Meeting</label>
+                <div class="row other-selected col-8" hidden>
+                    <div class="form-group col">
+                        <input
+                            id="other-info"
+                            class="form-control"
+                            id="first-name"
+                            name="first-name"
+                            type="text">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col">
             <label for="message">Message</label>
             <textarea
-              id="message"
-              class="form-control"
-              name="message"
-              rows="5"></textarea>
-          </div>
+                id="message"
+                class="form-control"
+                name="message"
+                rows="5"></textarea>
+            </div>
         </div>
+
+        <label for="meeting-time">Choose a time for your appointment:</label>
+
+        <input type="datetime-local" id="meeting-time"
+        name="meeting-time" value="2018-06-12T19:30"
+        min="2018-06-07T00:00" max="2018-06-14T00:00">
 
         <div class="d-flex flex-row-reverse mt-2">
           <input class="btn btn-primary" type="submit" name="submit" value="Submit">
