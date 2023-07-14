@@ -1,1 +1,10 @@
-I have completed the course and These are all the projects that I did for the term Fall 2022
+
+## Web222
+
+A collection of all of my completed assignments from the course WEB222.  
+This includes:
+* JavaScript with test functions. 
+* A tourist website
+* An ecom landing page
+* The first draft of my first developer portfolio
+
